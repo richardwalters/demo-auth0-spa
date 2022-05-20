@@ -3,7 +3,7 @@ import React from "react";
 import { hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
-import App from "./App";
+import App from "./view/App";
 import withAuth0AxiosInterceptor from "./infrastructure/withAuth0AxiosInterceptor";
 
 const AuthenticatedApp = withAuthenticationRequired(
