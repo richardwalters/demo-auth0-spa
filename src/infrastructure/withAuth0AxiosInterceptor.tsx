@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 const withAuth0AxiosInterceptor =
-  (Component) =>
-  ({ ...props }) => {
+  <T extends object>(Component: React.ComponentType<T>) =>
+  (props: T) => {
     const { getAccessTokenSilently } = useAuth0();
     const [initialized, setInitialized] = useState(false);
 

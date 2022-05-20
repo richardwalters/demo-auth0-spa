@@ -12,8 +12,8 @@ const AuthenticatedApp = withAuthenticationRequired(
 
 hydrate(
   <Auth0Provider
-    domain={process.env.RAZZLE_AUTH0_DOMAIN}
-    clientId={process.env.RAZZLE_AUTH0_CLIENT_ID}
+    domain={process.env.RAZZLE_AUTH0_DOMAIN!!}
+    clientId={process.env.RAZZLE_AUTH0_CLIENT_ID!!}
     redirectUri={window.location.origin}
     audience={process.env.RAZZLE_AUTH0_AUDIENCE}
     useRefreshTokens={true}
