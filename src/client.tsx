@@ -1,9 +1,14 @@
-import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider, withAuthenticationRequired } from "@auth0/auth0-react";
 import React from "react";
 import { hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
+import withAuth0AxiosInterceptor from "./infrastructure/withAuth0AxiosInterceptor";
+
+const AuthenticatedApp = withAuthenticationRequired(
+  withAuth0AxiosInterceptor(App)
+);
 
 hydrate(
   <Auth0Provider
@@ -14,7 +19,7 @@ hydrate(
     useRefreshTokens={true}
   >
     <BrowserRouter>
-      <App />
+      <AuthenticatedApp />
     </BrowserRouter>
   </Auth0Provider>,
   document.getElementById("root")
